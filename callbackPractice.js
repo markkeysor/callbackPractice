@@ -25,11 +25,17 @@ and what you should write is the favNum function that makes the code above work,
 
 
   //Code Here for first
-  
+
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
+
+var first = function(arr, cb) {
+  cb(arr[0]);
+};
+
 first(names, function(firstName){
   console.log('The first name in names is ', firstName)
 });
+
 
 
 
@@ -38,7 +44,9 @@ first(names, function(firstName){
 
 
 
-  //Code Here for last
+ var last = function(arr, cb) {
+  cb(arr[arr.length - 1]);
+ };
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 last(names, function(lastName){
@@ -49,18 +57,19 @@ last(names, function(lastName){
 
 
 
+
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
 
 
 
-
-
-  //Code Here for multiply
+var multiply = function(num1, num2, cb) {
+  cb(num1 * num2);
+};
 
 multiply(4, 3, function(answer){
   console.log('The answer is ', answer); //should console.log 12
-})
+});
 
 
 
@@ -72,7 +81,13 @@ multiply(4, 3, function(answer){
 
 
 
-  //Code Here for contains
+var contains = function(arr, str, cb) {
+  for (var i= 0; i < arr.length; i++){
+      if(arr[i] === str) {
+          return cb(true);
+      }
+  } return cb(false);
+};
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 contains(names, 'Colt', function(result){
@@ -91,8 +106,20 @@ contains(names, 'Colt', function(result){
 
 
 
+debugger;
+ var uniq = function(arr, cb) {
+  names.sort();
+  for (var i = 1; i < arr.length; i++) {
+    if (arr[i] === arr[i - 1]) {
+      arr.splice(i, 1);
+      i--;
+      
+    }
 
-    //Code Here for uniq
+  } return cb(arr);
+ };
+
+
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
