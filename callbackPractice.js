@@ -135,11 +135,15 @@ uniq(names, function(uniqArr){
 
 
 
-    //Code Here for each
+var each = function(item, cb){
+  for (var i = 0; i < item.length; i++){
+    cb(item[i], i);
+  }
+};
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
-  console.log('The item in the ' + indice + ' position is ' + item)
+  console.log('The item in the ' + indice + ' position is ' + item);
 });
 
 
@@ -152,7 +156,9 @@ each(names, function(item, indice){
 
 
 
- //code here for getUserById
+ var getUserById = function(obj, str, cb){
+  cb(str);
+ }
 
 var users = [
   {
